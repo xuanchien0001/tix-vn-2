@@ -1,0 +1,21 @@
+.lichChieuAllFilm {
+  .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-right > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab {
+    padding: 8px 12px !important;
+    max-width: 400px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+.lichChieuAllFilm::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+.lichChieuAllFilm::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+.lichChieuAllFilm::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}

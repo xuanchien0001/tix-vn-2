@@ -1,0 +1,81 @@
+.checkout {
+  .trapezoid {
+    border-bottom: 3rem solid #ccc;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+    height: 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .Thuong {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.4rem;
+    background-color: #7b7a7a;
+    border: none;
+    border-radius: 4px;
+    color: white;
+  }
+  .Vip {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.4rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(230, 113, 11);
+  }
+  .daDat {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.4rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(15, 168, 15);
+  }
+  .daBan {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.4rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    position: relative;
+    opacity: 0.5;
+    cursor: not-allowed;
+    &::before {
+      content: "✘";
+      position: absolute;
+      padding-top: 4px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: red;
+      border-radius: 4px;
+    }
+  }
+  .ghebanDaDat {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.4rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    position: relative;
+    opacity: 0.5;
+    cursor: not-allowed;
+    &::before {
+      content: "✔";
+      position: absolute;
+      padding-top: 4px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgb(42, 12, 209);
+      border-radius: 4px;
+    }
+  }
+}

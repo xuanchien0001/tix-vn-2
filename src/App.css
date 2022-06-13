@@ -1,0 +1,12 @@
+@import '~antd/dist/antd.css';
+
+/* custom thư viện sweetalert */
+.swal-footer { 
+      text-align: center;
+}
+.swal-title { 
+      color: rgba(0,0,0,0.8);
+}
+.swal-text { 
+      color: rgba(0,0,0,0.8);
+}

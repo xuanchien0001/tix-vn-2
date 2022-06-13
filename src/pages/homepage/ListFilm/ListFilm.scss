@@ -1,0 +1,17 @@
+@import "node_modules/react-modal-video/scss/modal-video.scss";
+
+.listFilm {
+  .slick-prev:before,
+  .slick-next:before {
+    content: "";
+  }
+  .slick-prev,
+  .slick-next {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: black;
+  }
+  // .slick-list {
+  //   padding: 0 5%;
+  // }
+}

@@ -1,0 +1,7 @@
+const LAY_DS_VE = "LAY-DS-VE";
+const CHON_GHE = "CHON_GHE";
+const DAT_VE = "DAT_VE";
+const LICH_SU_DAT_VE = "LICH_SU_DAT_VE";
+const KIEM_TRA_GHE = "KIEM_TRA_GHE";
+
+export { LAY_DS_VE, CHON_GHE, DAT_VE, LICH_SU_DAT_VE, KIEM_TRA_GHE };
