@@ -6,6 +6,7 @@ import {
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
   CSVExport,
+  ColumnToggle,
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
@@ -15,14 +16,28 @@ import { MA_NHOM } from "../../../../util/setting/config";
 
 //
 const { ExportCSVButton } = CSVExport;
+const { ToggleList } = ColumnToggle;
+const CSSanNoiDungQuaDai = anNoiDungQuaDai();
+
 const columns = [
-  { dataField: "taiKhoan", text: "Tài khoản" },
+  { dataField: "taiKhoan", text: "Tài khoản", headerAlign: "center" },
   {
     dataField: "email",
+    headerAlign: "center",
     text: "Email",
     validator: (newValue, row, column) => validation(newValue, row, column),
+    formatter: (cell) => <p style={CSSanNoiDungQuaDai}>{cell}</p>,
+    style: { backgroundColor: "#007bff" },
   },
-  { dataField: "hoTen", text: "Họ tên" },
+  { dataField: "hoTen", text: "Họ tên", headerAlign: "center" },
+  {
+    dataField: "soDt",
+    text: "Số điện thoại",
+    hidden: false,
+    headerAlign: "center",
+    formatter: (cell) => <p className="text-center mb-0">{cell}</p>,
+  },
+  { dataField: "matKhau", text: "Mật khẩu", hidden: true, headerAlign: "center" },
 ];
 function validation(newValue, row, column) {
   const filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -85,6 +100,8 @@ export default function ListUserBootstrap() {
     });
   };
 
+  console.log(stateiInit);
+
   useEffect(() => {
     fetchData(searchValue.current, 1, 10);
     return () => (isEditing = false);
@@ -129,31 +146,49 @@ export default function ListUserBootstrap() {
         data={data}
         columns={columns}
         exportCSV
+        columnToggle
       >
-        {(props) => (
-          <div>
-            <ExportCSVButton {...props.csvProps}>Export CSV!!</ExportCSVButton>
-            <hr />
-            <RemotePagination
-              data={data}
-              page={page}
-              sizePerPage={sizePerPage}
-              totalSize={stateiInit.totalCount}
-              onTableChange={handleTableChange}
-              {...props.baseProps}
-            />
-            {/* <BootstrapTable {...props.baseProps} /> */}
-          </div>
-        )}
+        {(props) => {
+          // console.log(props);
+          return (
+            <div className="relative">
+              <ToggleList
+                className=""
+                btnClassName="btn-success mr-1"
+                {...props.columnToggleProps}
+              />
+              <hr />
+              <RemotePagination
+                data={data}
+                page={page}
+                sizePerPage={sizePerPage}
+                totalSize={stateiInit.totalCount}
+                onTableChange={handleTableChange}
+                {...props.baseProps}
+              />
+              <div className="absolute right-10 bottom-4 bg-blue-500 text-white">
+                <ExportCSVButton {...props.csvProps}>Export CSV!!</ExportCSVButton>
+              </div>
+            </div>
+          );
+        }}
       </ToolkitProvider>
-
-      {/* <RemotePagination
-        data={data}
-        page={page}
-        sizePerPage={sizePerPage}
-        totalSize={stateiInit.totalCount}
-        onTableChange={handleTableChange}
-      /> */}
     </>
   );
+}
+
+function anNoiDungQuaDai() {
+  return {
+    display: "block",
+    display: "webkitBbox",
+    height: "20px",
+    fontSize: "16px",
+    lineHeight: 1.2,
+    webkitLineClamp: 1,
+    webkitBoxOrient: "vertical",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    textAlign: "center",
+    marginBottom: 0,
+  };
 }

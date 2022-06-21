@@ -30,9 +30,9 @@ export default function DropdownUser() {
     <Space direction="vertical">
       <Space wrap>
         <Dropdown overlay={menu} placement="bottomLeft">
-          <h3 className="cursor-pointer">
+          <h5 className="cursor-pointer text-white">
             {t("Welcome")} {userLogin.taiKhoan}
-          </h3>
+          </h5>
         </Dropdown>
       </Space>
     </Space>
